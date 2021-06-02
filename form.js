@@ -18,7 +18,11 @@ const defaultForm = () => {
 let formData = defaultForm();
 const fieldHandler = (e) => {
 	const { name, value } = e.target;
-	formData[name] = { value, touched: true, filled: value.length !== 0 && true };
+	console.log(name, 'clicked');
+	formData[name].value = value;
+	formData[name].filled = formData[name].value.length !== 0 && true;
+	formData[name].touched = true;
+	console.log(name, formData[name].value.length !== 0  ? 'Filled' : 'Not Filled');
 };
 
 const formValidation = (formInputs) => {
